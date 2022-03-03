@@ -6,3 +6,11 @@ crash.log
 
 # For built boxes
 *.box
+
+# harbor-ova 
+output-appliance-ova/
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
