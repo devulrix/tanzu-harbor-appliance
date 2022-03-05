@@ -144,7 +144,7 @@
     {
       "type": "shell-local",
       "inline": [
-        "pwsh -F unregister_vm.ps1 {{ user `ovftool_deploy_vcenter` }} {{ user `ovftool_deploy_vcenter_username` }} {{ user `ovftool_deploy_vcenter_password` }} {{ user `vm_name` }}"
+        "./unregister.sh -v {{ user `ovftool_deploy_vcenter` }} -u {{ user `ovftool_deploy_vcenter_username` }} -p {{ user `ovftool_deploy_vcenter_password` }} -t {{ user `vm_name` }}"
       ]
     }
   ]
