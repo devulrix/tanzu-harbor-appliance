@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euxo pipefail
+
 while getopts v:u:p:t: flag
 do
     case "${flag}" in
