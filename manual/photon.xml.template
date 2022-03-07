@@ -1,16 +1,16 @@
     <ProductSection ovf:required="true">
     <Info>Information about the installed software</Info>
-      <Product>VMware Harbor Appliance</Product>
-      <Vendor>WilliamLam.com</Vendor>
+      <Product>Harbor Appliance for Tanzu</Product>
+      <Vendor>Everything-as-code.com</Vendor>
       <Version>{{VERSION}}</Version>
-      <ProductUrl>https://github.com/lamw/harbor-appliance</ProductUrl>
-      <VendorUrl>https://williamlam.com/</VendorUrl>
+      <ProductUrl>https://github.com/devulrix/tanzu-harbor-appliance</ProductUrl>
+      <VendorUrl>https://everything-as-code.com/</VendorUrl>
       <Category>Networking</Category>
-        <Property ovf:key="guestinfo.hostname" ovf:type="string" ovf:userConfigurable="true" ovf:value="harbor.primp-industries.local">
+        <Property ovf:key="guestinfo.hostname" ovf:type="string" ovf:userConfigurable="true" ovf:value="harbor-app.lab.uhtec.com">
             <Label>Hostname</Label>
             <Description>Hostname of system</Description>
         </Property>
-        <Property ovf:key="guestinfo.ipaddress" ovf:type="string" ovf:userConfigurable="true" ovf:value="192.168.30.170">
+        <Property ovf:key="guestinfo.ipaddress" ovf:type="string" ovf:userConfigurable="true" ovf:value="192.168.1.222">
             <Label>IP Address</Label>
             <Description>IP Address of the system</Description>
         </Property>
@@ -18,7 +18,7 @@
             <Label>Network Prefix</Label>
             <Description>Network Prefix</Description>
         </Property>
-        <Property ovf:key="guestinfo.gateway" ovf:type="string" ovf:userConfigurable="true" ovf:value="192.168.30.1">
+        <Property ovf:key="guestinfo.gateway" ovf:type="string" ovf:userConfigurable="true" ovf:value="192.168.1.1">
             <Label>Gateway</Label>
             <Description>Gateway of the system</Description>
         </Property>
@@ -26,11 +26,11 @@
             <Label>NTP Server</Label>
             <Description>NTP Server</Description>
         </Property>
-        <Property ovf:key="guestinfo.dns" ovf:type="string" ovf:userConfigurable="true" ovf:value="192.168.30.2">
+        <Property ovf:key="guestinfo.dns" ovf:type="string" ovf:userConfigurable="true" ovf:value="192.168.1.130">
             <Label>DNS</Label>
             <Description>DNS Server</Description>
         </Property>
-        <Property ovf:key="guestinfo.domain" ovf:type="string" ovf:userConfigurable="true" ovf:value="primp-industries.local">
+        <Property ovf:key="guestinfo.domain" ovf:type="string" ovf:userConfigurable="true" ovf:value="lab.uhtec.com">
             <Label>DNS Domain</Label>
             <Description>DNS Domain</Description>
         </Property>
