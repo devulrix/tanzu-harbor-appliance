@@ -1,5 +1,4 @@
 {
-  "version": "1.0.0",
   "description": "Tanzu Harbor Appliance",
   "vm_name": "Tanzu_Harbor_Appliance",
   "iso_checksum": "eeb08738209bf77306268d63b834fd91f6cecdfb",

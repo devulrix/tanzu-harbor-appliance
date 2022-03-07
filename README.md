@@ -11,6 +11,7 @@ The appliance is based on [Photon 4](https://github.com/vmware/photon/tree/maste
 * [VMware OVFTool](https://developer.vmware.com/web/tool/4.4.0/ovf)
 * [Packer](https://www.packer.io/intro/getting-started/install.html)
 * [govc](https://github.com/vmware/govmomi/tree/master/govc)
+* [jq](https://github.com/stedolan/jq)
 
 > `packer` builds the OVA on a remote ESXi host via the [`vmware-iso`](https://www.packer.io/docs/builders/vmware-iso.html) builder. This builder requires the SSH service running on the ESXi host, as well as `GuestIPHack` enabled via the command below.
 
