@@ -4,6 +4,8 @@
 ## Misc configuration
 ##
 
+APPLIANCE_BOM_FILE=/root/config/tanzu-harbor-bom.jso
+
 echo '> Disable IPv6'
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 
@@ -19,19 +21,22 @@ tdnf install -y \
   logrotate \
   wget \
   unzip \
-  tar
+  tar \
+  jq \
+  git \
+  parted
 
 echo '> Creating directory for setup scripts'
 mkdir -p /root/setup
 
 echo ' > Downloading Harbor...'
-HARBOR_VERSION=2.4.1
+HARBOR_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["harbor"].version')
 curl -L https://github.com/goharbor/harbor/releases/download/v${HARBOR_VERSION}/harbor-offline-installer-v${HARBOR_VERSION}.tgz -o harbor-offline-installer-v${HARBOR_VERSION}.tgz
 tar xvzf harbor-offline-installer*.tgz
 rm -f harbor-offline-installer-v${HARBOR_VERSION}.tgz
 
 echo '> Downloading docker-compose...'
-DOCKER_COMPOSE_VERSION=1.29.2
+DOCKER_COMPOSE_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["docker-compose"].version')
 curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 

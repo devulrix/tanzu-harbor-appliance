@@ -3,27 +3,49 @@
         "version": "1.0.0"
     },
     "harbor": {
-        "version": "2.4.1"
+        "version": "2.4.1",
+        "projects": [{
+            "name": "tkg",
+            "public": true
+        },
+        {
+            "name": "tac",
+            "public": true
+        }]
     },
     "docker-compose": {
         "version": "1.29.2"
     },
-    "ytt-cli": {
-        "version": "0.40.0"
+    "pivnet": {
+        "token": "Your-Token"
+    },
+    "ytt": {
+        "version": "0.40.0",
+        "pivnet": false
     },
     "kapp": {
-        "version": "0.46.0"
+        "version": "0.46.0",
+        "pivnet": false
     },
     "imgpkg": {
-        "version": "0.25.0"
+        "version": "0.25.0",
+        "pivnet": false
     },
     "kbld": {
-        "version": "0.32.0"
+        "version": "0.32.0",
+        "pivnet": false
     },
     "kubectl": {
         "version": "1.23.4"
     }, 
     "tanzu-cli": {
-        "version": "0.10.0"
-    }
+        "version": "0.10.0",
+        "pivnet": false
+    },
+    "packages": [{
+            "version": "1.4"
+        },
+        {
+            "version": "1.5"
+        }]
 }
