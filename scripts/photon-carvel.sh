@@ -12,6 +12,11 @@ PIVNET_CLI_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["pivnet-cli"].version')
 curl -L https://github.com/pivotal-cf/pivnet-cli/releases/download/v${PIVNET_CLI_VERSION}/pivnet-linux-amd64-${PIVNET_CLI_VERSION} -o /usr/local/bin/pivnet
 chmod +x /usr/local/bin/pivnet
 
+echo '> Downloading vmw-cli container'
+VMW_CLI_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["vmw-cli"].version')
+VMW_CLI_CONTAINER=$(jq -r < ${APPLIANCE_BOM_FILE} '.["vmw-cli"].container')
+docker pull $VMW_CLI_CONTAINER:$VMW_CLI_VERSION
+
 echo ' > Downloading ytt...'
 YTT_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["ytt"].version')
 curl -L https://github.com/vmware-tanzu/carvel-ytt/releases/download/v${YTT_VERSION}/ytt-linux-amd64 -o /usr/local/bin/ytt

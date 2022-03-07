@@ -20,6 +20,10 @@
         "version": "3.0.1",
         "token": "Your-Token"
     },
+    "vmw-cli": {
+        "version": "latest",
+        "container": "apnex/vmw-cli"
+    },
     "ytt": {
         "version": "0.40.0",
         "pivnet": false
