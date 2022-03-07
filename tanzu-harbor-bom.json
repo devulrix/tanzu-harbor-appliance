@@ -16,7 +16,8 @@
     "docker-compose": {
         "version": "1.29.2"
     },
-    "pivnet": {
+    "pivnet-cli": {
+        "version": "3.0.1",
         "token": "Your-Token"
     },
     "ytt": {
