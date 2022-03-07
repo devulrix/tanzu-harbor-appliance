@@ -1,7 +1,7 @@
 {
-  "version": "2.4.1",
-  "description": "VMware Harbor Appliance",
-  "vm_name": "VMware_Harbor_Appliance",
+  "version": "1.0.0",
+  "description": "Tanzu Harbor Appliance",
+  "vm_name": "Tanzu_Harbor_Appliance",
   "iso_checksum": "eeb08738209bf77306268d63b834fd91f6cecdfb",
   "iso_checksum_type": "sha1",
   "iso_url": "https://packages.vmware.com/photon/4.0/Rev2/iso/photon-4.0-c001795b8.iso",
