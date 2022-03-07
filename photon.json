@@ -52,6 +52,15 @@
   "provisioners": [
     {
       "type": "shell",
+      "inline": ["mkdir -p /root/config && mkdir -p /root/download"]
+    },
+    {
+      "type": "file",
+      "source": "tanzu-harbor-bom.json",
+      "destination": "/root/config/tanzu-harbor-bom.json"
+    },
+    {
+      "type": "shell",
       "scripts": [
         "scripts/photon-settings.sh"
       ]

@@ -1,0 +1,29 @@
+{
+    "appliance": {
+        "version": "1.0.0"
+    },
+    "harbor": {
+        "version": "2.4.1"
+    },
+    "docker-compose": {
+        "version": "1.29.2"
+    },
+    "ytt-cli": {
+        "version": "0.40.0"
+    },
+    "kapp": {
+        "version": "0.46.0"
+    },
+    "imgpkg": {
+        "version": "0.25.0"
+    },
+    "kbld": {
+        "version": "0.32.0"
+    },
+    "kubectl": {
+        "version": "1.23.4"
+    }, 
+    "tanzu-cli": {
+        "version": "0.10.0"
+    }
+}
