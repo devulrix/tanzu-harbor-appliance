@@ -45,4 +45,4 @@ Step 3 - Start the build by running the build script which simply calls Packer a
 ./build.sh
 ````
 
-If the build was successful, you will find the Harbor OVA located in `output-vmware-iso/VMware_Harbor_Appliance_2.4.1.ova`
+If the build was successful, you will find the Harbor OVA located in `output-harbor-iso/Tanzu_Harbor_Appliance-VERSION.ova`

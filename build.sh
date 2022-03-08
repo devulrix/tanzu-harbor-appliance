@@ -10,7 +10,7 @@ if [! has jq 2>/dev/null]; then
 fi
 
 echo "Building Harbor OVA Appliance ..."
-rm -f output-vmware-iso/*.ova
+rm -f output-harbor-iso/*.ova
 
 APPLIANCE_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.appliance.version')
 

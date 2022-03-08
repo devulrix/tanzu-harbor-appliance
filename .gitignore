@@ -8,7 +8,7 @@ crash.log
 *.box
 
 # harbor-ova 
-output-appliance-ova/
+output-harbor-iso/
 
 # Mac
 .DS_Store

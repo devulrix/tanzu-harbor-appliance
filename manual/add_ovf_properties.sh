@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT_PATH="../output-vmware-iso"
+OUTPUT_PATH="../output-harbor-iso"
 OVF_PATH=$(find ${OUTPUT_PATH} -type f -iname ${PHOTON_APPLIANCE_NAME}.ovf -exec dirname "{}" \;)
 
 # Move ovf files in to a subdirectory of OUTPUT_PATH if not already
