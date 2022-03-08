@@ -4,7 +4,7 @@
 ## Misc configuration
 ##
 
-APPLIANCE_BOM_FILE=/root/config/tanzu-harbor-bom.jso
+APPLIANCE_BOM_FILE=/root/config/tanzu-harbor-bom.json
 
 echo '> Disable IPv6'
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
