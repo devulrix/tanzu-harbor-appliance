@@ -1,6 +1,13 @@
 #!/bin/bash
 
-curl -k -X POST -u "admin:${HARBOR_PASSWORD}" "https://${HOSTNAME}/api/v2.0/projects" -H  "accept: application/json" -H  "X-Resource-Name-In-Location: false" -H  "Content-Type: application/json" -d "{  \"project_name\": \"tkg\", \"metadata\": {    \"enable_content_trust\": \"false\",    \"auto_scan\": \"false\",       \"public\": \"true\",    \"reuse_sys_cve_allowlist\": \"true\"},  \"public\": true}"
+set -euo pipefail
+
+for row in $(jq -c '.harbor.projects | map(.) | .[]' ${APPLIANCE_BOM_FILE}); do
+    _jq() {
+        echo ${row} | jq -r "${1}"
+    }
+    curl -k -X POST -u "admin:${HARBOR_PASSWORD}" "https://${HOSTNAME}/api/v2.0/projects" -H  "accept: application/json" -H  "X-Resource-Name-In-Location: false" -H  "Content-Type: application/json" -d "{  \"project_name\": \"$(_jq '.name')\", \"metadata\": {    \"enable_content_trust\": \"false\",    \"auto_scan\": \"false\",       \"public\": \"$(_jq '.public')\",    \"reuse_sys_cve_allowlist\": \"true\"}}"
+done
 
 docker login ${HOSTNAME} -u admin -p ${HARBOR_PASSWORD}
 docker load -i /root/images/kapp-controller-0.25.0.tar.gz
