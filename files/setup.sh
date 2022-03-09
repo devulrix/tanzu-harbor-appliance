@@ -4,6 +4,8 @@
 
 set -euo pipefail
 
+APPLIANCE_BOM_FILE=/root/config/tanzu-harbor-bom.json
+
 # Extract all OVF Properties
 DEBUG=$(/root/setup/getOvfProperty.py "guestinfo.debug")
 HOSTNAME=$(/root/setup/getOvfProperty.py "guestinfo.hostname")

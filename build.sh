@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euxo pipefail
+set -euo pipefail
 
 APPLIANCE_BOM_FILE=tanzu-harbor-bom.json
 
