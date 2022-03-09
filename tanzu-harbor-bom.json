@@ -47,10 +47,31 @@
         "version": "0.10.0",
         "pivnet": false
     },
-    "packages": [{
-            "version": "1.4"
+    "bundles": [{
+            "source": "projects.registry.vmware.com/tkg/packages/standard/repo:v1.4.0",
+            "destination": "tkg/tanzu-packages"
         },
         {
-            "version": "1.5"
+            "source": "projects.registry.vmware.com/tkg/packages/standard/repo:v1.5.0",
+            "destination": "tkg/tanzu-packages"
+        }],
+    "containers": [{
+            "image":  "projects.registry.vmware.com/tkg/kapp-controller",
+            "tag": "v0.25.0_vmware.1",
+            "destination": "tkg"
+        },
+        {
+            "image":  "projects.registry.vmware.com/tkg/kapp-controller",
+            "tag": "v0.30.0_vmware.1",
+            "destination": "tkg"
+        }], 
+    "tkr": [{
+            "name": "v1.21.6---vmware.1-tkg.1.b3d708a"
+        },
+        {
+            "name": "v1.20.12---vmware.1-tkg.1.b9a42f3"
+        },
+        {
+            "name": "v1.19.7---vmware.1-tkg.2.f52f85a"
         }]
 }

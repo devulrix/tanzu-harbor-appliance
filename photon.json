@@ -52,7 +52,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "inline": ["mkdir -p /root/config && mkdir -p /root/download"]
+      "inline": ["mkdir -p /root/config && mkdir -p /root/images"]
     },
     {
       "type": "file",

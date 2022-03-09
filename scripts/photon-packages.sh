@@ -1,19 +1,26 @@
-#!/bin/bash -eux
+#!/usr/bin/env bash
 ##
-## Download the tanzu packages 
+## Download all container images
 ##
 
-echo ' > Downloading kapp-controller...'
-mkdir images
-docker pull projects.registry.vmware.com/tkg/kapp-controller:v0.25.0_vmware.1
-docker save projects.registry.vmware.com/tkg/kapp-controller:v0.25.0_vmware.1 | gzip > images/kapp-controller-0.25.0.tar.gz
-docker rmi projects.registry.vmware.com/tkg/kapp-controller:v0.25.0_vmware.1
-docker pull projects.registry.vmware.com/tkg/kapp-controller:v0.30.0_vmware.1
-docker save projects.registry.vmware.com/tkg/kapp-controller:v0.30.0_vmware.1 | gzip > images/kapp-controller-0.30.0.tar.gz
-docker rmi projects.registry.vmware.com/tkg/kapp-controller:v0.30.0_vmware.1
+set -euo pipefail
 
-echo ' > Downloading package repo 1.4.0'
-imgpkg copy -b projects.registry.vmware.com/tkg/packages/standard/repo:v1.4.0 --to-tar images/packages-1.4.0.tar
+echo ' > Downloading container images...'
 
-echo ' > Downloading package repo 1.5.0'
-imgpkg copy -b projects.registry.vmware.com/tkg/packages/standard/repo:v1.5.0 --to-tar images/packages-1.5.0.tar
+for row in $(jq -c '.containers | map(.) | .[]' ${APPLIANCE_BOM_FILE}); do
+    _jq() {
+        echo ${row} | jq -r "${1}"
+    }
+    echo $(_jq '.image')":"$(_jq '.tag')
+    imgpkg copy -i $(_jq '.image'):$(_jq '.tag') --to-tar images/$(_jq '.image' | awk -F '/' '{print $NF}'):$(_jq '.tag').tar
+done
+
+echo ' > Downloading bundles...'
+
+for row in $(jq -c '.bundles | map(.) | .[]' ${APPLIANCE_BOM_FILE}); do
+    _jq() {
+        echo ${row} | jq -r "${1}"
+    }
+    echo $(_jq '.source')
+    imgpkg copy -b $(_jq '.source') --to-tar images/$(_jq '.source' | awk -F '/' '{print $NF}').tar
+done
