@@ -14,3 +14,7 @@ output-harbor-iso/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# ingore test
+images/
+test.sh
