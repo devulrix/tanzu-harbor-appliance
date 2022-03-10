@@ -20,6 +20,9 @@
         "version": "3.0.1",
         "token": "Your-Token"
     },
+    "govc": {
+        "version": "0.27.4"
+    },
     "vmw-cli": {
         "version": "latest",
         "container": "apnex/vmw-cli"

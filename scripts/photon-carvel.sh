@@ -17,6 +17,13 @@ VMW_CLI_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["vmw-cli"].version')
 VMW_CLI_CONTAINER=$(jq -r < ${APPLIANCE_BOM_FILE} '.["vmw-cli"].container')
 docker pull $VMW_CLI_CONTAINER:$VMW_CLI_VERSION
 
+echo '> Downloading govc'
+GOVC_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["govc"].version')
+mkdir /root/tmp
+curl -L https://github.com/vmware/govmomi/releases/download/v${GOVC_VERSION}/govc_Linux_x86_64.tar.gz -o /root/tmp/govc.tar.gz
+mv /root/tmp/govc /usr/local/bin/govc
+rm -rf /root/tmp 
+
 echo ' > Downloading ytt...'
 YTT_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["ytt"].version')
 curl -L https://github.com/vmware-tanzu/carvel-ytt/releases/download/v${YTT_VERSION}/ytt-linux-amd64 -o /usr/local/bin/ytt
