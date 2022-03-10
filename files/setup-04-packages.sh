@@ -23,6 +23,5 @@ for row in $(jq -c '.bundles | map(.) | .[]' ${APPLIANCE_BOM_FILE}); do
     _jq() {
         echo ${row} | jq -r "${1}"
     }
-    echo $(_jq '.source')
-    imgpkg copy --tar /root/images/$(_jq '.image' | awk -F '/' '{print $NF}'):$(_jq '.tag').tar --to-repo ${HOSTNAME}/$(_jq '.destination')/$(_jq '.image' | awk -F '/' '{print $NF}') --registry-username admin --registry-password ${HARBOR_PASSWORD} --registry-verify-certs=false
+    imgpkg copy --tar /root/images/$(_jq '.source' | awk -F '/' '{print $NF}').tar --to-repo ${HOSTNAME}/$(_jq '.destination') --registry-username admin --registry-password ${HARBOR_PASSWORD} --registry-verify-certs=false
 done
