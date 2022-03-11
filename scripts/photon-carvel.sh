@@ -21,6 +21,7 @@ echo '> Downloading govc'
 GOVC_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["govc"].version')
 mkdir /root/tmp
 curl -L https://github.com/vmware/govmomi/releases/download/v${GOVC_VERSION}/govc_Linux_x86_64.tar.gz -o /root/tmp/govc.tar.gz
+tar zxf /root/tmp/govc.tar.gz -C /root/tmp/
 mv /root/tmp/govc /usr/local/bin/govc
 rm -rf /root/tmp 
 
