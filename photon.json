@@ -12,7 +12,7 @@
       "vm_name": "{{ user `vm_name` }}",
       "guest_os_type": "Other",
       "version": "13",
-      "disk_size": "102400",
+      "disk_size": "30720",
       "boot_command": [
         "<esc><wait>",
         "vmlinuz initrd=initrd.img root=/dev/ram0 loglevel=3 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/photon-kickstart.json photon.media=cdrom insecure_installation=1",
