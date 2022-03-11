@@ -53,6 +53,9 @@
     "charts-syncer": {
         "version": "0.15.0"
     },
+    "helm": {
+        "version": "3.8.1"
+    },
     "bundles": [{
             "source": "projects.registry.vmware.com/tkg/packages/standard/repo:v1.4.0",
             "destination": "tkg/tanzu-packages"

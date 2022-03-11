@@ -57,3 +57,10 @@ curl -L "https://github.com/bitnami-labs/charts-syncer/releases/download/v${CART
 tar zxf /root/tmp/chart-syncer.tar.gz -C /root/tmp
 mv /root/tmp/charts-syncer /usr/local/bin/charts-syncer
 rm -rf /root/tmp
+
+echo '> Downloading helm...'
+HELM_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["helm"].version')
+mkdir /root/tmp
+curl -L "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" -o /root/tmp/helm.tar.gz
+tar zxf /root/tmp/helm.tar.gz -C /root/tmp
+mv /root/tmp/linux-amd64/helm /usr/local/bin/helm
