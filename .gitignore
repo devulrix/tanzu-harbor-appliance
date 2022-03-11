@@ -9,6 +9,7 @@ crash.log
 
 # harbor-ova 
 output-harbor-iso/
+output-vmware-iso/
 
 # Mac
 .DS_Store
