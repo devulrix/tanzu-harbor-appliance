@@ -49,3 +49,11 @@ echo '> Downloading kubectl...'
 KUBECTL_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["kubectl"].version')
 curl -L "https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl
 chmod +x /usr/local/bin/kubectl
+
+echo '> Downloading charts-syncer...'
+CARTS_SYNCER_VERSION=$(jq -r < ${APPLIANCE_BOM_FILE} '.["charts-syncer"].version')
+mkdir /root/tmp
+curl -L "https://github.com/bitnami-labs/charts-syncer/releases/download/v${CARTS_SYNCER_VERSION}/charts-syncer_${CARTS_SYNCER_VERSION}_linux_x86_64.tar.gz" -o /root/tmp/chart-syncer.tar.gz
+tar zxf /root/tmp/chart-syncer.tar.gz -C /root/tmp
+mv /root/tmp/charts-syncer /usr/local/bin/charts-syncer
+rm -rf /root/tmp

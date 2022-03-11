@@ -50,6 +50,9 @@
         "version": "0.10.0",
         "pivnet": false
     },
+    "charts-syncer": {
+        "version": "0.15.0"
+    },
     "bundles": [{
             "source": "projects.registry.vmware.com/tkg/packages/standard/repo:v1.4.0",
             "destination": "tkg/tanzu-packages"
