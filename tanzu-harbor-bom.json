@@ -4,14 +4,16 @@
     },
     "harbor": {
         "version": "2.4.1",
-        "projects": [{
-            "name": "tkg",
-            "public": true
-        },
-        {
-            "name": "tac",
-            "public": true
-        }]
+        "projects": [
+            {
+                "name": "tkg",
+                "public": true
+            },
+            {
+                "name": "tac",
+                "public": true
+            }
+        ]
     },
     "docker-compose": {
         "version": "1.29.2"
@@ -45,7 +47,7 @@
     },
     "kubectl": {
         "version": "1.23.4"
-    }, 
+    },
     "tanzu-cli": {
         "version": "0.10.0",
         "pivnet": false
@@ -56,25 +58,63 @@
     "helm": {
         "version": "3.8.1"
     },
-    "bundles": [{
+    "bundles": [
+        {
             "source": "projects.registry.vmware.com/tkg/packages/standard/repo:v1.4.0",
             "destination": "tkg/tanzu-packages"
         },
         {
             "source": "projects.registry.vmware.com/tkg/packages/standard/repo:v1.5.0",
             "destination": "tkg/tanzu-packages"
-        }],
-    "containers": [{
-            "image":  "projects.registry.vmware.com/tkg/kapp-controller",
+        }
+    ],
+    "containers": [
+        {
+            "image": "projects.registry.vmware.com/tkg/kapp-controller",
             "tag": "v0.25.0_vmware.1",
             "destination": "tkg"
         },
         {
-            "image":  "projects.registry.vmware.com/tkg/kapp-controller",
+            "image": "projects.registry.vmware.com/tkg/kapp-controller",
             "tag": "v0.30.0_vmware.1",
             "destination": "tkg"
-        }], 
-    "tkr": [{
+        }
+    ],
+    "tac": {
+        "version": "latest",
+        "target": "tac",
+        "charts": [
+            {
+                "name": "wordpress"
+            },
+            {
+                "name": "redis"
+            },
+            {
+                "name": "rabbitmq"
+            },
+            {
+                "name": "postgresql"
+            },
+            {
+                "name": "nginx"
+            },
+            {
+                "name": "mysql"
+            },
+            {
+                "name": "mongodb"
+            },
+            {
+                "name": "minio"
+            },
+            {
+                "name": "kubeapps"
+            }
+        ]
+    },
+    "tkr": [
+        {
             "name": "v1.21.6---vmware.1-tkg.1.b3d708a"
         },
         {
@@ -82,5 +122,6 @@
         },
         {
             "name": "v1.19.7---vmware.1-tkg.2.f52f85a"
-        }]
+        }
+    ]
 }
