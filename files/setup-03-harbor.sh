@@ -50,6 +50,11 @@ cp ${HOSTNAME}.cert /etc/docker/certs.d/${HOSTNAME}/
 cp ${HOSTNAME}.key /etc/docker/certs.d/${HOSTNAME}/
 cp ca.crt /etc/docker/certs.d/${HOSTNAME}/
 
+# put cert into host trust store
+openssl x509 -in /data/cert/${HOSTNAME}.crt -out /data/cert/${HOSTNAME}.pem -outform PEM
+cp /data/cert/${HOSTNAME}.pem /etc/ssl/certs/
+rehash_ca_certificates.sh
+
 # Creating Harbor configuration
 HARBOR_CONFIG=harbor.yml
 cd /root/harbor

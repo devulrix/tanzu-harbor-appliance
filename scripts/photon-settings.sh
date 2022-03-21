@@ -24,7 +24,8 @@ tdnf install -y \
   tar \
   jq \
   git \
-  parted
+  parted \
+  openssl-c_rehash
 
 echo '> Creating directory for setup scripts'
 mkdir -p /root/setup
