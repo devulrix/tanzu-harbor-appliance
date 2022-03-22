@@ -50,6 +50,9 @@ else
 	echo -e "\e[92mStarting Tanzu CLI installation ..." > /dev/console
 	. /root/setup/setup-05-tanzu.sh
 
+	echo -e "\e[92mStarting TAC migration ..." > /dev/console
+	. /root/setup/setup-06-tac.sh
+
 	echo -e "\e[92mCustomization Completed ..." > /dev/console
 
 	# Clear guestinfo.ovfEnv

@@ -1,0 +1,8 @@
+#@ load("@ytt:data", "data")
+source:
+  repo:
+    kind: HELM
+    url: https://charts.trials.tac.bitnami.com/demo
+target:
+  intermediateBundlesPath: /root/images/chart-bundles-dir
+charts: #@ data.values.my_apps.split(",")

@@ -1,0 +1,18 @@
+#@ load("@ytt:data", "data")
+source:
+  intermediateBundlesPath: /root/images/chart-bundles-dir
+target:
+  containerRegistry: #@ data.values.hostname
+  containerRepository: #@ data.values.repo
+  repo:
+    kind: OCI #! or as any other supported Helm Chart repository kinds
+    url: #@ "https://" + data.values.hostname +  "/" + data.values.repo
+    auth:
+       username: #@ data.values.username
+       password: #@ data.values.password
+  #! Container registry authentication
+  containers:
+     auth:
+       registry: #@ "https://" + data.values.hostname
+       username: #@ data.values.username
+       password: #@ data.values.password
