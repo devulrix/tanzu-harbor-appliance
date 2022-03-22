@@ -154,6 +154,11 @@
       "type": "file",
       "source": "files/setup-06-tac.sh",
       "destination": "/root/setup/setup-06-tac.sh"
+    },
+    {
+      "type": "file",
+      "source": "files/tanzu-cl.sh",
+      "destination": "/usr/local/bin/tanzu-cl.sh"
     }
   ],
   "post-processors": [
