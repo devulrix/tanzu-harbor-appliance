@@ -51,6 +51,16 @@
       "destination": "/root/config/tanzu-harbor-bom.json"
     },
     {
+      "type": "file",
+      "source": "scripts/config-save-bundles.yml",
+      "destination": "/root/config/config-save-bundles.yml"
+    },
+    {
+      "type": "file",
+      "source": "files/config-load-bundles.yml",
+      "destination": "/root/config/config-load-bundles.yml"
+    },
+    {
       "type": "shell",
       "scripts": [
         "scripts/photon-settings.sh"
@@ -130,6 +140,16 @@
       "type": "file",
       "source": "files/setup-05-tanzu.sh",
       "destination": "/root/setup/setup-05-tanzu.sh"
+    },
+    {
+      "type": "file",
+      "source": "files/setup-06-tac.sh",
+      "destination": "/root/setup/setup-06-tac.sh"
+    },
+    {
+      "type": "file",
+      "source": "files/tanzu-cl.sh",
+      "destination": "/usr/local/bin/tanzu-cl.sh"
     }
   ],
   "post-processors": [
