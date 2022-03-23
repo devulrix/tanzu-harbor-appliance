@@ -3,6 +3,8 @@
 ## Download tanzu cli
 ##
 
+APPLIANCE_BOM_FILE=/root/config/tanzu-harbor-bom.json
+
 echo ' > Syncing TAC demo catalog'
 APPS=""
 for row in $(jq -c '.tac.charts | map(.) | .[]' ${APPLIANCE_BOM_FILE}); do
