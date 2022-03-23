@@ -64,3 +64,4 @@ mkdir /root/tmp
 curl -L "https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz" -o /root/tmp/helm.tar.gz
 tar zxf /root/tmp/helm.tar.gz -C /root/tmp
 mv /root/tmp/linux-amd64/helm /usr/local/bin/helm
+rm -rf /root/tmp
